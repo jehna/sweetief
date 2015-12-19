@@ -2,7 +2,8 @@
 
 Game.objects.Level = function(options) {
     this.options = options;
-}
+};
+
 Game.objects.Level.prototype.Load = function() {
     this.InitPhysics();
     
@@ -13,22 +14,22 @@ Game.objects.Level.prototype.Load = function() {
     var h = this.options.height || 100;
     var t = 4;
     var p = 2;
-    new Game.objects["Wall"]({ width: w, height: t, x: 0, y: 0 }).Init();
-    new Game.objects["Wall"]({ width: w, height: t, x: 0, y: h }).Init();
-    new Game.objects["Wall"]({ width: t, height: h, x: 0, y: 0 }).Init();
-    new Game.objects["Wall"]({ width: t, height: h, x: w, y: 0 }).Init();
+    new Game.objects.Wall({ width: w, height: t, x: 0, y: 0 }).Init();
+    new Game.objects.Wall({ width: w, height: t, x: 0, y: h }).Init();
+    new Game.objects.Wall({ width: t, height: h, x: 0, y: 0 }).Init();
+    new Game.objects.Wall({ width: t, height: h, x: w, y: 0 }).Init();
     
-    var objects = this.options.objects || [];
+    var objects = this.options.objects || [];
     
     for(var i = 0; i < objects.length; i++) {
         var objType = objects[i].type;
-        var options = objects[i].options || null;
+        var options = objects[i].options || null;
         var newObj = new Game.objects[objType](options);
         newObj.Init();
     }
     
     document.getElementById("game").style.backgroundImage = 'url("'+this.options.bg+'")';
-}
+};
 
 Game.objects.Level.prototype.InitPhysics = function() {
     
@@ -42,7 +43,7 @@ Game.objects.Level.prototype.InitPhysics = function() {
     debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
     Game.physicalWorld.SetDebugDraw(debugDraw);
     
-}
+};
 
 
 
@@ -52,7 +53,7 @@ Game.objects.Level.prototype.InitPhysics = function() {
 
 // Actual levels
 
-Game.levels["level1"] = new Game.objects.Level({
+Game.levels.level1 = new Game.objects.Level({
     playerPosition: { x: 20, y: 20 },
     bg: 'Layout/level1.png',
     width: 340,
@@ -67,7 +68,7 @@ Game.levels["level1"] = new Game.objects.Level({
     ]
 });
 
-Game.levels["level2"] = new Game.objects.Level({
+Game.levels.level2 = new Game.objects.Level({
     playerPosition: { x: 20, y: 20 },
     bg: 'Layout/level1.png',
     width: 340,
@@ -82,7 +83,7 @@ Game.levels["level2"] = new Game.objects.Level({
     ]
 });
 
-Game.levels["level3"] = new Game.objects.Level({
+Game.levels.level3 = new Game.objects.Level({
     playerPosition: { x: 20, y: 270 },
     bg: 'Layout/level2.png',
     width: 380,
@@ -101,7 +102,7 @@ Game.levels["level3"] = new Game.objects.Level({
     ]
 });
 
-Game.levels["level4"] = new Game.objects.Level({
+Game.levelslevel4 = new Game.objects.Level({
     playerPosition: { x: 30, y: 150 },
     bg: 'Layout/level4.png',
     width: 480,
@@ -121,7 +122,7 @@ Game.levels["level4"] = new Game.objects.Level({
     ]
 });
 
-Game.levels["level5"] = new Game.objects.Level({
+Game.levelslevel5 = new Game.objects.Level({
     playerPosition: { x: 20, y: 270 },
     bg: 'Layout/level2.png',
     width: 380,
@@ -145,7 +146,7 @@ Game.levels["level5"] = new Game.objects.Level({
     ]
 });
 
-Game.levels["level6"] = new Game.objects.Level({
+Game.levelslevel6 = new Game.objects.Level({
     playerPosition: { x: 30, y: 150 },
     bg: 'Layout/level4.png',
     width: 480,

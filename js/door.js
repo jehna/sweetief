@@ -1,6 +1,6 @@
 Game.objects.Door = function(options) {
     this.options = options || {};
-}
+};
 
 Game.objects.Door.prototype.Init = function() {
     var _t = this;
@@ -17,8 +17,8 @@ Game.objects.Door.prototype.Init = function() {
     
     Game.Update(function() {
         var pos = _t.sprite.globalToLocal(Game.player.x, Game.player.y);
-        if (Game.player.hasStolenEverything == true && _t.sprite.hitTest(pos.x, pos.y)) {
+        if (Game.player.hasStolenEverything === true && _t.sprite.hitTest(pos.x, pos.y)) {
             Game.Completed();
         }
     });
-}
+};

@@ -1,6 +1,6 @@
 Game.objects.StealThis = function(options) {
     this.options = options || {};
-}
+};
 
 Game.objects.StealThis.prototype.Init = function() {
     var _t = this;
@@ -13,7 +13,7 @@ Game.objects.StealThis.prototype.Init = function() {
         _t.sprite.x = _t.options.x || 0;
         _t.sprite.y = _t.options.y || 0;
         
-        var bodyDef = new Box2D.Dynamics.b2BodyDef;
+        var bodyDef = new Box2D.Dynamics.b2BodyDef();
         bodyDef.type = Box2D.Dynamics.b2Body.b2_staticBody;
         Game.physics.materials.wall.shape = new Box2D.Collision.Shapes.b2CircleShape(radius);
         
@@ -23,7 +23,7 @@ Game.objects.StealThis.prototype.Init = function() {
         _t.body.CreateFixture(Game.physics.materials.wall);
         _t.body.SetUserData(_t);
         
-        var contactListener = new Box2D.Dynamics.b2ContactListener
+        var contactListener = new Box2D.Dynamics.b2ContactListener();
         contactListener.BeginContact = function(contact) {
             if(contact.GetFixtureB().GetBody().GetUserData() != _t) return;
             if(contact.GetFixtureA().GetBody().GetUserData() != Game.player) return;
@@ -34,7 +34,7 @@ Game.objects.StealThis.prototype.Init = function() {
             setTimeout(function() { Write("LET'S GET OUTTA HERE!", false); }, 6000);
             _t.sprite.alpha = 0; Game.player.hasStolenEverything = true;
             Game.asassinateList.push(_t.body);
-        }
+        };
         Game.physicalWorld.SetContactListener(contactListener);
         
     });
@@ -45,4 +45,4 @@ Game.objects.StealThis.prototype.Init = function() {
            
         }
     });*/
-}
+};

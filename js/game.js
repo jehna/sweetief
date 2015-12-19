@@ -9,7 +9,7 @@ var Game = (function() {
     };
     Game.init = function() {
         // Setup enviroment
-        if(localStorage.getItem('muted') == 1 || (!(localStorage.getItem('muted') > 0) && !confirm("Enable sound?"))) {
+        if(localStorage.getItem('muted') == 1 || (localStorage.getItem('muted') <= 0 && !confirm("Enable sound?"))) {
             Game.env.mute = true;
             localStorage.setItem('muted', 1);
             //createjs.Sound.setMute(true);
@@ -22,7 +22,7 @@ var Game = (function() {
         Game.stage = new createjs.Stage("c");
         createjs.Ticker.setFPS(40);
         createjs.Ticker.addEventListener("tick", function(tick) {
-            if(Game.env.playing == false) return;
+            if(Game.env.playing === false) return;
             
             Game.stage.update(tick);
             while(Game.asassinateList.length) { Game.physicalWorld.DestroyBody(Game.asassinateList.pop()); }
@@ -31,11 +31,11 @@ var Game = (function() {
         
         // Update physics
         window.setInterval(function() {
-            if(!Game.physicalWorld ||�Game.env.playing == false) return;
+            if(!Game.physicalWorld || Game.env.playing === false) return;
             Game.physicalWorld.Step(
-                  1 / 60   //frame-rate
-               ,  10       //velocity iterations
-               ,  10       //position iterations
+                1 / 60,   //frame-rate
+                10,       //velocity iterations
+                10        //position iterations
             );
             //Game.physicalWorld.DrawDebugData();
             Game.physicalWorld.ClearForces();
@@ -49,7 +49,7 @@ var Game = (function() {
         //createjs.Sound.registerSound("winning.ogg", "winning");
         //createjs.Sound.registerSound("gotcandy.ogg", "gotcandy");
         
-    }
+    };
     
     function AddListener(listenerName, callback) {
         if(typeof Game.events[listenerName] == "undefined") Game.events[listenerName] = [];
@@ -61,16 +61,16 @@ var Game = (function() {
     }
     
     Game.Awake = function(callback) {
-        if(Game.env.started == true) callback();
+        if(Game.env.started === true) callback();
         else AddListener("awake", callback);
-    }
+    };
     Game.Start = function(callback) {
-        if(Game.env.started == true) callback();
+        if(Game.env.started === true) callback();
         else AddListener("start", callback);
-    }
+    };
     Game.Update = function(callback) {
         AddListener("update", callback);
-    }
+    };
     
     Game.LoadLevel = function(levelName) {
         Game.stage.removeAllChildren();
@@ -95,7 +95,7 @@ var Game = (function() {
         
         // This is fired for each sound that is registered.
         //createjs.Sound.play("bgmusic").setVolume(0.5);
-    }
+    };
     
     // Complete and fail
     Game.Over = function() {
@@ -106,7 +106,7 @@ var Game = (function() {
         //createjs.Sound.play("wahwahwah").setVolume(0.5);
         
         GameOverTexts();
-    }
+    };
     Game.Completed = function() {
         if(!Game.env.playing) return;
         Game.env.playing = false;
@@ -116,6 +116,6 @@ var Game = (function() {
         WinningTexts();
         
         Game.currentLevel++;
-    }
+    };
     return Game;
 })();

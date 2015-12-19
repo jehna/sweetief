@@ -4,13 +4,13 @@ $(function() {
     var forceNextAnimation = false;
     
     window.Write = function(msg, clicktocontinue) {
-        clicktocontinue = (clicktocontinue != false);
+        clicktocontinue = (clicktocontinue !== false);
         var currentString = "";
         var pieces = msg.split("");
         
         function Animate() {
             animationGoing = true;
-            if(pieces.length == 0 || forceNextAnimation) {
+            if(pieces.length === 0 || forceNextAnimation) {
                 var addText = clicktocontinue ? "<br><br>(Click to continue)" : "";
                 $("#message").html(currentString + pieces.join("") + addText);
                 animationGoing = false;
@@ -25,7 +25,7 @@ $(function() {
         }
         
         Animate();
-    }
+    };
     
     var startmessages = [
         "I managed to break in to Candy Store!",
@@ -113,10 +113,10 @@ $(function() {
         $("#game").slideUp({easing: "easeOutBounce", duration: 2000});
         SetNextMessages(gameovermessages);
         Write(messages.shift());
-    }
+    };
     window.WinningTexts = function() {
         $("#game").slideUp({easing: "easeOutBounce", duration: 2000});
         SetNextMessages(winningstexts[Game.currentLevel]);
         Write(messages.shift());
-    }
+    };
 });

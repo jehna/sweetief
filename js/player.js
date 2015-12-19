@@ -25,7 +25,7 @@ Game.objects.Player = function(position) {
         Game.player.speed = 50;
         Game.player.hasStolenEverything = false;
         
-        var bodyDef = new Box2D.Dynamics.b2BodyDef;
+        var bodyDef = new Box2D.Dynamics.b2BodyDef();
         bodyDef.type = Box2D.Dynamics.b2Body.b2_dynamicBody;
         Game.physics.materials.player.shape = new Box2D.Collision.Shapes.b2CircleShape(radius);
         
@@ -78,4 +78,4 @@ Game.objects.Player = function(position) {
         //Game.player.y = Game.player.body.position.y;
         //if(Game.player.hitTest())
     });
-}
+};

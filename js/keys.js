@@ -13,7 +13,7 @@ var KeyCode = {
 (function() {
     Game.Input = {
         keyDown : {}
-    }
+    };
     
     //allow for WASD and arrow control scheme
 	function handleKeyDown(e) {
@@ -54,8 +54,8 @@ var KeyCode = {
 	}
     
     Game.Input.GetKeyDown = function(keyCode) {
-        return (Game.Input.keyDown[keyCode] == true);
-    }
+        return (Game.Input.keyDown[keyCode] === true);
+    };
     
     
 	document.onkeydown = handleKeyDown;
