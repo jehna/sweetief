@@ -1,5 +1,5 @@
 # Sweetief
-> A pixel-graphics adventure game about a burglar in a candy shop
+> A pixel-graphics puzzle game about a burglar in a candy shop
 
 A free game made with [createjs][createjs], built in 48 hours in a game jam.
 
