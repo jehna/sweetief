@@ -4,7 +4,8 @@
     <title>Sweetief - a Game Jam game by Jesse Luoto</title>
     
     <link href='http://fonts.googleapis.com/css?family=Sunshiney' rel='stylesheet' type='text/css'>
-    <link href='bootstrap.css' rel="stylesheet"/>
+    <link href='css/bootstrap.css' rel="stylesheet"/>
+    <link href='css/style.css' rel="stylesheet"/>
     <script src='lib/Box2dWeb-2.1.a.3.min.js'></script>
     <script src="lib/easeljs-0.6.1.min.js"></script>
     <script src="lib/soundjs.js"></script>
@@ -23,68 +24,6 @@
     <script src="js/laser.js"></script>
     <script src="js/movebox.js"></script>
     <script src="js/teaser.js"></script>
-    
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            background: #445;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: moz-none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        #game {
-            background: #FFF top left no-repeat;
-            position: relative;
-            width: 500px;
-            height: 400px;
-            margin: 0 auto;
-            display: none;
-        }
-        #c {
-            position: relative;
-            left: 0;
-            top: 0;
-            z-index: 1;
-        }
-        #cdebug {
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 2;
-        }
-        #messagebox {
-            width: 498px;
-            border: 1px solid #348;
-            background: #223;
-            color: #FFF;
-            margin: 0 auto;
-        }
-        h1 {
-            width: 300px;
-            text-align: center;
-            margin: 10px auto;
-            font-family: 'Sunshiney', cursive;
-            color: #FFF;
-            font-weight: normal;
-            border: 3px dotted #FFF;
-        }
-        #messagebox img {
-            float: right;
-            margin: 10px;
-            border: 1px solid #666;
-        }
-        .clear {
-            clear: both;
-        }
-        #message {
-            font: 13px "Andale Mono", Courier, Courier New, monospace;
-            padding: 10px;
-        }
-    </style>
 </head>
 <body onLoad="Game.init();" id="body">
     <h1>Sweetief</h1>
