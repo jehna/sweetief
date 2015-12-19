@@ -1,5 +1,4 @@
-var Game;
-(function() {
+var Game = (function() {
     Game = {
         env : {},
         events : [],
@@ -32,7 +31,7 @@ var Game;
         
         // Update physics
         window.setInterval(function() {
-            if(!Game.physicalWorld || Game.env.playing == false) return;
+            if(!Game.physicalWorld ||ï¿½Game.env.playing == false) return;
             Game.physicalWorld.Step(
                   1 / 60   //frame-rate
                ,  10       //velocity iterations
@@ -118,5 +117,5 @@ var Game;
         
         Game.currentLevel++;
     }
-    
+    return Game;
 })();
