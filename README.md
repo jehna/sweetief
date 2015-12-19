@@ -3,6 +3,8 @@
 
 A free game made with [createjs][createjs], built in 48 hours in a game jam.
 
+![Screenshot](http://jehna.github.io/sweetief/ss.png)
+
 ## Credits
 
 Game by [Jesse Luoto](jesse). Made with [createjs][createjs] at
