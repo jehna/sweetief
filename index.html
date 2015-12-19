@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sweetief - a Game Jam game by Jesse Luoto</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Sunshiney' rel='stylesheet' type='text/css'>
+    <link href='bootstrap.css' rel="stylesheet"/>
+    <script src='lib/Box2dWeb-2.1.a.3.min.js'></script>
+    <script src="lib/easeljs-0.6.1.min.js"></script>
+    <script src="lib/soundjs.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="jquery.easing.js"></script>
+    <!-- <script src="lib/movieclip-0.6.1.min.js"></script> -->
+    <script src="game.js"></script>
+    <script src="keys.js"></script>
+    <script src="physics.js"></script>
+    <script src="levels.js"></script>
+    <script src="player.js"></script>
+    <script src="lamp.js"></script>
+    <script src="stealthis.js"></script>
+    <script src="door.js"></script>
+    <script src="wall.js"></script>
+    <script src="laser.js"></script>
+    <script src="movebox.js"></script>
+    
+    
+    
+    <script src="teaser.js"></script>
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: #445;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: moz-none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #game {
+            background: #FFF top left no-repeat;
+            position: relative;
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+            display: none;
+        }
+        #c {
+            position: relative;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+        #cdebug {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+        #messagebox {
+            width: 498px;
+            border: 1px solid #348;
+            background: #223;
+            color: #FFF;
+            margin: 0 auto;
+        }
+        h1 {
+            width: 300px;
+            text-align: center;
+            margin: 10px auto;
+            font-family: 'Sunshiney', cursive;
+            color: #FFF;
+            font-weight: normal;
+            border: 3px dotted #FFF;
+        }
+        #messagebox img {
+            float: right;
+            margin: 10px;
+            border: 1px solid #666;
+        }
+        .clear {
+            clear: both;
+        }
+        #message {
+            font: 13px "Andale Mono", Courier, Courier New, monospace;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body onLoad="Game.init();" id="body">
+    <h1>Sweetief</h1>
+    <div id="game">
+        <canvas id="c" width="500" height="400"></canvas>
+        <canvas id="cdebug" width="500" height="400"></canvas>
+    </div>
+    <div id="messagebox">
+        <img src="Layout/parsta.png" />
+        <div id="message">Psst...</div>
+        <div class="clear"></div>
+    </div>
+    <button onclick="Game.LoadLevel('level1');">Restart</button><button onclick="window.location.reload();">Reload</button><br>
+    <img src="Layout/prize.png" style="visibility: hidden;" id="prize" />
+    <img src="Layout/ukko.png" style="visibility: hidden;" id="ukko" />
+    <img src="Layout/box.png" style="visibility: hidden;" id="box" />
+</body>
+</html>
